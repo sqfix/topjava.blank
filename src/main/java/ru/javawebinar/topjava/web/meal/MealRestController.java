@@ -41,7 +41,7 @@ public class MealRestController {
         service.delete(id, userId);
     }
 
-    public List<MealWithExceed> getAll() {
+    public List<MealWithExceed> getAll() throws NullPointerException {
         int userId = AuthorizedUser.id();
         LOG.info("getAll for User {}", userId);
         return MealsUtil.getWithExceeded(service.getAll(userId), AuthorizedUser.getCaloriesPerDay());
